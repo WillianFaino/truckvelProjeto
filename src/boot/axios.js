@@ -7,7 +7,13 @@ import axios from 'axios'
 // good idea to move this instance creation inside of the
 // "export default () => {}" function below (which runs individually
 // for each client)
-const api = axios.create({ baseURL: 'https://reqres.in/api' })
+const api = axios.create(
+  {
+    baseURL: 'https://reqres.in/api',
+    headers: {
+      'x-api-key': 'reqres-free-v1'
+    }
+  })
 
 export default defineBoot(({ app }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api
